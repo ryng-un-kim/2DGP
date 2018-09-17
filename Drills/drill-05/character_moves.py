@@ -3,11 +3,22 @@ from pico2d import *
 open_canvas()
 
 grass = load_image('grass.png')
-character = load_image('character.png')
+character = load_image('animation_sheet.png')
 
 
 def move_from_xy1_to_xy2():
-    pass
+    x, y = 203, 503
+    frame = 0
+    while x > 132 and y > 243:
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 0, 100, 100, x, y)
+        update_canvas()
+        frame = (frame + 1) % 8
+        x -= 1
+        y -= 1
+        delay(0.02)
+        get_events()
 
 
 def move_from_xy2_to_xy3():
