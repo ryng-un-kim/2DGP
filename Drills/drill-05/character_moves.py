@@ -52,7 +52,18 @@ def move_from_xy3_to_xy4():  # 535, 470 -> 477, 203
 
 
 def move_from_xy4_to_xy5():  # 477, 203 -> 715, 136
-    pass
+    x, y = 477, 203
+    frame = 0
+    while x < 715 and y > 136:
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 100, 100, 100, x, y)
+        update_canvas()
+        frame = (frame + 1) % 8
+        x += 1
+        y -= 1
+        delay(0.02)
+        get_events()
 
 
 def move_from_xy5_to_xy6():  # 715, 136 -> 316, 225
@@ -82,7 +93,7 @@ def move_from_xy10_to_xy1():  # 712, 349 -> 203, 503
 while True:
     # move_from_xy1_to_xy2()
     # move_from_xy2_to_xy3()
-    move_from_xy3_to_xy4()
+    # move_from_xy3_to_xy4()
     move_from_xy4_to_xy5()
     move_from_xy5_to_xy6()
     move_from_xy6_to_xy7()
