@@ -20,11 +20,11 @@ def character_random_move(p1, p2):
         kpu_ground.draw(W/2, H/2, W, H)
         if p1[0] < p2[0]:
             character.clip_draw(frame * 100, 100, 100, 100, x, y)
-        if p1[1] < p2[1]:
+        if p1[0] > p2[0]:
             character.clip_draw(frame * 100, 1, 100, 100, x, y)
         frame = (frame+1)%8
         update_canvas()
-        delay(0.2)
+        delay(0.03)
 
 size = 20
 points = [(random.randint(200,600), random.randint(300,500)) for i in range(size)]
@@ -32,7 +32,8 @@ n = 1
 
 
 while True:
-    pass
+    character_random_move(points[n-1],points[n])
+    n = (n + 1) % size
 
 
 close_canvas()
