@@ -9,6 +9,7 @@ kpu_ground = load_image("kpu_ground.png")
 character = load_image("animation_sheet.png")
 Idle = load_image("character.png")
 
+
 def character_random_move(p1, p2):
     frame = 0
     for i in range(0, 100+1, 10):
@@ -24,8 +25,14 @@ def character_random_move(p1, p2):
         frame = (frame+1)%8
         update_canvas()
         delay(0.2)
-        
+
+size = 20
+points = [(random.randint(200,600), random.randint(300,500)) for i in range(size)]
+n = 1
+
+
 while True:
     pass
+
 
 close_canvas()
