@@ -95,8 +95,17 @@ def draw_curve_4_points(p1, p2, p3, p4):
     draw_point(p4)
 
 
+def draw_curve_5_points(p1, p2, p3, p4, p5):
+    draw_big_point(p1)
+    draw_big_point(p2)
+    draw_big_point(p3)
+    draw_big_point(p4)
+    draw_big_point(p5)
+
+
 prepare_turtle_canvas()
 
+draw_curve_5_points((-300, 200), (400, 350), (300, -300), (100, 100), (-200, -200))
 
 while True:
     pass
