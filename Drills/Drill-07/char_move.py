@@ -11,6 +11,7 @@ Idle = load_image("character.png")
 
 
 def character_random_move(p1, p2):
+
     frame = 0
     for i in range(0, 100+1, 10):
         t = i/100
@@ -22,17 +23,18 @@ def character_random_move(p1, p2):
             character.clip_draw(frame * 100, 100, 100, 100, x, y)
         if p1[0] > p2[0]:
             character.clip_draw(frame * 100, 1, 100, 100, x, y)
-        frame = (frame+1)%8
+        frame = (frame+1) % 8
         update_canvas()
         delay(0.03)
 
+
 size = 20
-points = [(random.randint(200,600), random.randint(300,500)) for i in range(size)]
+points = [(random.randint(200, 600), random.randint(300, 500)) for i in range(size)]
 n = 1
 
 
 while True:
-    character_random_move(points[n-1],points[n])
+    character_random_move(points[n-1], points[n])
     n = (n + 1) % size
 
 
