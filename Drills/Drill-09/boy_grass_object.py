@@ -5,8 +5,8 @@ import random
 
 class Boy():
     def __init__(self):
-        self.x, self.y = 0, 90
-        self.frame = 0
+        self.x, self.y = random.randint(100, 600), 90
+        self.frame = random.randint(0, 7)
         self.image = load_image('run_animation.png')
 
     def update(self):
@@ -32,9 +32,9 @@ class Ball21():
         self.draw()
 
     def update(self):
-        self.y -= 5
-        if self.y < 50:
-            self.y = 50
+        self.y -= random.randint(2, 10)
+        if self.y < 55:
+            self.y = 55
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -47,9 +47,9 @@ class Ball41():
         self.draw()
 
     def update(self):
-        self.y -= random.randint(1, 5)
-        if self.y < 50:
-            self.y = 50
+        self.y -= random.randint(5, 10)
+        if self.y < 65:
+            self.y = 65
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -68,9 +68,12 @@ def handle_events():
 
 
 open_canvas()
-boy = Boy()
-s_ball = Ball21()
-b_ball = Ball41()
+team = [Boy() for i in range(11)]
+s_balls = [Ball21() for i in range(random.randint(1, 20))]
+
+
+
+b_balls = [Ball41() for i in range(random.randint()]
 grass = Grass()
 running = True;
 # game main loop code
@@ -78,14 +81,21 @@ running = True;
 
 while running:
     handle_events()
-    boy.update()
-    s_ball.update()
-    b_ball.update()
+    for boy in team:
+        boy.update()
+    for s_ball in s_balls:
+        s_ball.update()
+    for b_ball in b_balls:
+        b_ball.update()
     clear_canvas()
     grass.draw()
-    boy.draw()
-    s_ball.draw()
-    b_ball.draw()
+    for boy in team:
+        boy.draw()
+    for s_ball in s_balls:
+        s_ball.draw()
+    for b_ball in b_balls:
+        b_ball.draw()
+
     update_canvas()
     delay(0.05)
 
