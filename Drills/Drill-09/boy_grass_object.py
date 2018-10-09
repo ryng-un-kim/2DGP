@@ -4,16 +4,38 @@ from pico2d import *
 
 
 class Boy():
-    pass
+    def __init__(self):
+        pass
+
+    def update(self):
+        pass
+
+    def draw(self):
+        pass
+
 
 class Grass():
-    pass
+    def __init__(self):
+        pass
+
+    def draw(self):
+        pass
+
 
 class Ball21():
-    pass
+    def __init__(self):
+        pass
+
+    def draw(self):
+        pass
+
 
 class Ball42():
-    pass
+    def __init__(self):
+        pass
+
+    def draw(self):
+        pass
 
 
 def handle_events():
@@ -27,6 +49,12 @@ def handle_events():
 
 # initialization code
 
+
+open_canvas()
+boy = Boy()
+grass = Grass()
+running = True;
 # game main loop code
 
 # finalization code
+close_canvas()
