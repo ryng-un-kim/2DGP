@@ -69,11 +69,8 @@ def handle_events():
 
 open_canvas()
 team = [Boy() for i in range(11)]
-s_balls = [Ball21() for i in range(random.randint(1, 20))]
-
-
-
-b_balls = [Ball41() for i in range(random.randint()]
+s_balls = [Ball21() for i in range(random.randint(1, 11))]
+b_balls = [Ball41() for i in range(random.randint(5, 20))]
 grass = Grass()
 running = True;
 # game main loop code
