@@ -1,5 +1,5 @@
 from pico2d import *
-
+import random
 # Game object class here
 
 
@@ -27,18 +27,32 @@ class Grass():
 
 class Ball21():
     def __init__(self):
-        pass
+        self.x, self.y = random.randint(100, 600), 600
+        self.image = load_image('ball21x21.png')
+        self.draw()
+
+    def update(self):
+        self.y -= 5
+        if self.y < 50:
+            self.y = 50
 
     def draw(self):
-        pass
+        self.image.draw(self.x, self.y)
 
 
-class Ball42():
+class Ball41():
     def __init__(self):
-        pass
+        self.x, self.y = random.randint(100, 600), 600
+        self.image = load_image('ball41x41.png')
+        self.draw()
+
+    def update(self):
+        self.y -= random.randint(1, 5)
+        if self.y < 50:
+            self.y = 50
 
     def draw(self):
-        pass
+        self.image.draw(self.x, self.y)
 
 
 def handle_events():
@@ -55,6 +69,8 @@ def handle_events():
 
 open_canvas()
 boy = Boy()
+s_ball = Ball21()
+b_ball = Ball41()
 grass = Grass()
 running = True;
 # game main loop code
@@ -63,9 +79,13 @@ running = True;
 while running:
     handle_events()
     boy.update()
+    s_ball.update()
+    b_ball.update()
     clear_canvas()
     grass.draw()
     boy.draw()
+    s_ball.draw()
+    b_ball.draw()
     update_canvas()
     delay(0.05)
 
