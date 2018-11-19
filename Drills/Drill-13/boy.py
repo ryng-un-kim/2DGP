@@ -71,12 +71,14 @@ class WalkingState:
         boy.y += boy.y_velocity * game_framework.frame_time
 
         # fill here
-
+        boy.x = clamp(boy.y/5, boy.x, -boy.y/5 + boy.bg.w)
+        boy.y = clamp(70, boy.y, boy.bg.h - 50)
 
     @staticmethod
     def draw(boy):
         # fill here
-        cx, cy = boy.canvas_width // 2, boy.canvas_height // 2
+        cx, cy = boy.x - boy.bg.window_left, boy.y - boy.bg.window_bottom
+        # cx, cy = boy.canvas_width // 2, boy.canvas_height // 2
         if boy.x_velocity > 0:
             boy.image.clip_draw(int(boy.frame) * 100, 100, 100, 100, cx, cy)
             boy.dir = 1
