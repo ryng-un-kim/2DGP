@@ -16,7 +16,7 @@ name = "MainState"
 boy = None
 background = None
 balls = []
-
+ball = None
 def enter():
 
     global boy
@@ -27,13 +27,25 @@ def enter():
     background = Background()
     game_world.add_object(background, 0)
 
-    # fill here
-    background.set_center_object(boy)
-    boy.set_background(background)
-
     global balls
-    balls = [Ball() for i in range(10)]
+    balls = [Ball() for i in range(100)]
     game_world.add_objects(balls, 0)
+
+   #  global ball
+    # ball = Ball()
+    # game_world.add_object(ball, 0)
+    # fill here
+
+    background.set_center_object(boy)
+    # background.set_center_object(ball)
+    boy.set_background(background)
+    for ball in balls:
+        ball.set_background(background)
+
+
+
+
+
 
 def exit():
     game_world.clear()
